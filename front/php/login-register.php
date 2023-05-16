@@ -17,7 +17,7 @@
 
 <body>
 
-    <div class="formulario d-flex justify-content-center bg-dark text-white">
+    <div class="formulario bg-dark text-white">
         
         <form class="d-flex flex-column">
         <h2 class="text-center p-4">REGISTRO</h2>
