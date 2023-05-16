@@ -45,7 +45,7 @@
 
     <!-- SIDEBAR -->
 
-    aklsdlsa
+    
 
 
     <?php
