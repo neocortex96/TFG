@@ -30,12 +30,17 @@ USE `bbdd-tfg`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorías`
+-- Estructura de tabla para la tabla `post`
 --
 
-CREATE TABLE `categorías` (
-  `id_category` int(5) NOT NULL,
-  `name_category` varchar(30) NOT NULL
+CREATE TABLE `post` (
+  `p_id` int(9) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `id_topic` int(5) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `texto` text NOT NULL,
+  `img` mediumblob DEFAULT NULL,
+  `rating` int(9) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -48,17 +53,6 @@ CREATE TABLE `roles` (
   `id_rol` int(3) NOT NULL,
   `name_rol` varchar(25) NOT NULL,
   `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ti_topics-categories`
---
-
-CREATE TABLE `ti_topics-categories` (
-  `id_topic` int(4) NOT NULL,
-  `category` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
@@ -103,11 +97,12 @@ CREATE TABLE `users` (
 --
 
 --
--- Indices de la tabla `categorías`
+-- Indices de la tabla `post`
 --
-ALTER TABLE `categorías`
-  ADD PRIMARY KEY (`id_category`),
-  ADD UNIQUE KEY `name_category` (`name_category`);
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`p_id`),
+  ADD KEY `FK_USERNAME` (`username`),
+  ADD KEY `FK_TOPIC` (`id_topic`);
 
 --
 -- Indices de la tabla `roles`
@@ -115,13 +110,6 @@ ALTER TABLE `categorías`
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_rol`),
   ADD UNIQUE KEY `name_rol` (`name_rol`);
-
---
--- Indices de la tabla `ti_topics-categories`
---
-ALTER TABLE `ti_topics-categories`
-  ADD UNIQUE KEY `id_topic` (`id_topic`,`category`),
-  ADD KEY `FK_CATEGORY` (`category`);
 
 --
 -- Indices de la tabla `ti_users-topics`
@@ -146,15 +134,25 @@ ALTER TABLE `users`
   ADD KEY `FK_ROLE` (`role`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `post`
+--
+ALTER TABLE `post`
+  MODIFY `p_id` int(9) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `ti_topics-categories`
+-- Filtros para la tabla `post`
 --
-ALTER TABLE `ti_topics-categories`
-  ADD CONSTRAINT `FK_CATEGORY` FOREIGN KEY (`category`) REFERENCES `categorías` (`id_category`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_TOPIC` FOREIGN KEY (`id_topic`) REFERENCES `topics` (`id_topic`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `post`
+  ADD CONSTRAINT `FK_TOPIC` FOREIGN KEY (`id_topic`) REFERENCES `topics` (`id_topic`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_USERNAME` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `ti_users-topics`
