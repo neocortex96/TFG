@@ -1,3 +1,35 @@
-body{
-    color:red;
+body {
+    background-color: lightgray;    
+}
+.barra-navegacion{
+    background-color: darkslateblue;
+}
+
+.items-trending {
+    width: 200vw;
+    animation: items-trending 20s linear infinite;
+}
+.card {
+    margin: 1em;
+}
+.items-trending a {
+    text-decoration: none;
+    color: black;
+}
+
+.trending-today {
+    overflow: hidden;
+    /* height: 20%; */
+    box-sizing: border-box !important;
+    border-spacing: 20px;
+}
+
+@keyframes items-trending {
+    from {
+        transform: translateX(20%);
+    }
+
+    to {
+        transform: translateX(-20%);
+    }
 }

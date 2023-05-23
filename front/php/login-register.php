@@ -18,7 +18,7 @@
 <body>
 
     <div class="formulario bg-dark text-white">
-        
+    <button type="button" class="btn-close" aria-label="Close"></button>
         <form class="d-flex flex-column">
         <h2 class="text-center p-4">REGISTRO</h2>
             <div class="mb-3">

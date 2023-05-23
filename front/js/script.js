@@ -1,0 +1,8 @@
+function cargarSugerencias(){
+    
+}
+
+
+function cargarLogin(){
+
+}

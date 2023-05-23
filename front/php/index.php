@@ -11,45 +11,129 @@
     <!-- JS LINK -->
     <script src="../js/script.js"></script>
     <!-- BOOTSTRAP LINK -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-      
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="../css/index.css">
 
     <head>
-      <!-- LINK CSS -->
-      <link rel="stylesheet" href="../css/index.css">
+
     </head>
 
 <body>
 
+    <!-- AL REGISTRARSE NOS SACA LA PANTALLA DE SUGERENCIAS (INTERESES) EN UN MINIDISPLAY CON CATEGORIAS RANDOM -->
 
-    <nav class="barra-navegacion navbar navbar-expand-lg bg-success">
+
+    <!-- NAVBAR -->
+    <nav class="barra-navegacion navbar navbar-expand-lg p-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">LOGO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="#">Iniciar Sesión</a>
-                    <a class="nav-link" href="#">Registrarse</a>
-                </div>
-            </div>
+
+            <a class="navbar-brand text-light" href="#">LOGO</a>
+
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+
+            <button type="button" class="btn btn-primary">Iniciar sesión</button>
         </div>
     </nav>
 
 
     <!-- SIDEBAR -->
+    <div class="container d-flex flex-wrap col-xl-8">
+        <div class="categorias rounded-0 list-group col-sm-12 col-md-6 col-xl-4">
+            <a href="#" class="list-group-item list-group-item-action active p-3 fs-3" aria-current="true">
+                Categorías
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
 
-    
+        </div>
+        <div class="trending-today text-center bg-light p-3 col-sm-12 col-md-6 col-xl-8">
+            <div class="fs-3">Trending today</div>
+            <div class="my-3 fs-5 items-trending">
+                <a href="#">Trending 1</a>
+                <a href="#">Trending 2</a>
+                <a href="#">Trending 3</a>
+                <a href="#">Trending 4</a>
+                <a href="#">Trending 5</a>
+                <a href="#">Trending 6</a>
+                <a href="#">Trending 7</a>
+                <a href="#">Trending 8</a>
+                <a href="#">Trending 9</a>
+                <a href="#">Trending 10</a>
+            </div>
+            <div class="contenedor-cards justify-content-center container d-flex flex-wrap">
+                <div class="card" style="width: 18rem;">
+                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            
+            </div>
+            <button class="btn text-decoration-underline p-1">Mostrar más</button>
+
+
+        </div>
+    </div>
+
+
+
 
 
     <?php
     ?>
+    <!-- BOOTSTRAP JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
 </html>
