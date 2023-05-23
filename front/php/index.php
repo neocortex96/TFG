@@ -8,15 +8,15 @@
     <meta http-equiv="refresh" content="10">
     <title>Document</title>
 
+    <head>
     <!-- JS LINK -->
     <script src="../js/script.js"></script>
     <!-- BOOTSTRAP LINK -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- LINK CSS -->
     <link rel="stylesheet" href="../css/index.css">
-
-    <head>
-
     </head>
 
 <body>
@@ -31,8 +31,8 @@
             <a class="navbar-brand text-light" href="#">LOGO</a>
 
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Buscar topics" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>
 
             <button type="button" class="btn btn-primary">Iniciar sesión</button>
@@ -118,7 +118,7 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-            
+
             </div>
             <button class="btn text-decoration-underline p-1">Mostrar más</button>
 
@@ -127,7 +127,17 @@
     </div>
 
 
+    <!-- FOOTER -->
 
+    <div class="footer text-center container-fluid p-4 bg-dark text-white">
+        <a href="#">Aviso de copyright</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Mapa de sitio</a>
+        <a href="#">Información de contacto</a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+
+    </div>
 
 
     <?php

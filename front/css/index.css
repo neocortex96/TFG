@@ -19,7 +19,6 @@ body {
 
 .trending-today {
     overflow: hidden;
-    /* height: 20%; */
     box-sizing: border-box !important;
     border-spacing: 20px;
 }
@@ -32,4 +31,13 @@ body {
     to {
         transform: translateX(-20%);
     }
+}
+.footer a{
+    padding-right: 10px;
+    padding-left: 10px;
+    color: lightgray;
+    text-decoration: none;
+}
+.footer a:nth-child(-n + 3){
+    border-right: 1px solid white;
 }
