@@ -43,7 +43,7 @@
     <!-- SIDEBAR -->
     <div class="container d-flex flex-wrap col-xl-8">
         <div class="categorias rounded-0 list-group col-sm-12 col-md-6 col-xl-4">
-            <a href="#" class="list-group-item list-group-item-action active p-3 fs-3" aria-current="true">
+            <a href="#" class="fw-bold text-black bg-white border-light-subtle list-group-item list-group-item-action active p-3 fs-3" aria-current="true">
                 Categorías
             </a>
             <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
@@ -72,7 +72,7 @@
 
         </div>
         <div class="trending-today text-center bg-light p-3 col-sm-12 col-md-6 col-xl-8">
-            <div class="fs-3">Trending today</div>
+            <div class="fs-3 text-start fw-bold">Trending today</div>
             <div class="my-3 fs-5 items-trending">
                 <a href="#">Trending 1</a>
                 <a href="#">Trending 2</a>
@@ -84,8 +84,10 @@
                 <a href="#">Trending 8</a>
                 <a href="#">Trending 9</a>
                 <a href="#">Trending 10</a>
+                
             </div>
-            <div class="contenedor-cards justify-content-center container d-flex flex-wrap">
+            
+            <div class="contenedor-cards container justify-content-center  d-flex flex-wrap">
                 <div class="card" style="width: 18rem;">
                     <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
                     <div class="card-body">

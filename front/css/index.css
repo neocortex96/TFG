@@ -4,17 +4,24 @@ body {
 .barra-navegacion{
     background-color: darkslateblue;
 }
-
-.items-trending {
-    width: 200vw;
-    animation: items-trending 20s linear infinite;
-}
 .card {
     margin: 1em;
+}
+.items-trending {
+    /* margin: 0 auto; */
+    white-space: nowrap;
+    overflow: hidden;
+    /* position: absolute; */
 }
 .items-trending a {
     text-decoration: none;
     color: black;
+    display: inline-block;
+    /* padding-left: 100%; */
+    animation: items-trending 5s linear infinite;
+}
+.items-trending2 a{
+    animation-delay:2.5s;
 }
 
 .trending-today {
@@ -24,13 +31,12 @@ body {
 }
 
 @keyframes items-trending {
-    from {
-        transform: translateX(20%);
-    }
-
-    to {
-        transform: translateX(-20%);
-    }
+    0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-100%, 0);
+      }
 }
 .footer a{
     padding-right: 10px;
