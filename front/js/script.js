@@ -1,8 +1,0 @@
-function cargarSugerencias(){
-    
-}
-
-
-function cargarLogin(){
-
-}

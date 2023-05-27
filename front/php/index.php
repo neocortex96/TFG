@@ -9,14 +9,12 @@
     <title>Document</title>
 
     <head>
-    <!-- JS LINK -->
-    <script src="../js/script.js"></script>
-    <!-- BOOTSTRAP LINK -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- LINK CSS -->
-    <link rel="stylesheet" href="../css/index.css">
+        <!-- BOOTSTRAP LINK -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- BOOTSTRAP ICONS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <!-- LINK CSS -->
+        <link rel="stylesheet" href="../css/index.css">
     </head>
 
 <body>
@@ -84,42 +82,19 @@
                 <a href="#">Trending 8</a>
                 <a href="#">Trending 9</a>
                 <a href="#">Trending 10</a>
-                
+
             </div>
-            
-            <div class="contenedor-cards container justify-content-center  d-flex flex-wrap">
-                <div class="card" style="width: 18rem;">
+
+            <div class="contenedor-cards container justify-content-center  d-flex flex-wrap" id="contenedor-cards">
+
+                <!-- <div class="card" style="width: 18rem;">
                     <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+                </div> -->
 
             </div>
             <button class="btn text-decoration-underline p-1">Mostrar más</button>
@@ -141,18 +116,17 @@
 
     </div>
 
-
-    <?php
-    
-    ?>
     <!-- BOOTSTRAP JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
-<?php 
+<?php
 // include("./controller/index_control.php"); 
 require_once('../../back/php/back-queries.php');
 cargarPost();
 ?>
+
+    <!-- JS LINK -->
+    <script src="../js/index.js"></script>
 
 </html>
