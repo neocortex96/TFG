@@ -2,7 +2,7 @@ body {
     background-color: lightgray;    
 }
 .barra-navegacion{
-    background-color: darkslateblue;
+    /* background-color: darkslateblue; */
 }
 .card {
     margin: 1em;

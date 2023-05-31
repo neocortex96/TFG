@@ -1,0 +1,51 @@
+.barra-navegacion{
+    /* background-color: darkslateblue; */
+}
+.chat-button{
+    /* height: 2.5em; */
+}
+#mi-imagen{
+    height: 110px;
+    width: 130px;
+    object-fit: cover;
+}
+#nombre-usuario{
+    padding-right: 15px;
+}
+a{
+    text-decoration: none;
+}
+
+@media(max-width: 991px){
+    #navbar-iconos-derecha {
+        display: none !important;
+    }
+}
+@media(max-width: 768px){
+    #nombre-usuario{
+        border: none !important;
+    }
+    #miembro-desde{
+        margin: 0px !important;
+        padding-bottom: 5px;
+    }
+    .columna-imagen{
+        justify-content: center;
+        align-items: center;
+        object-fit: cover;
+    }
+}
+
+.footer a{
+    padding-right: 10px;
+    padding-left: 10px;
+    color: lightgray;
+    text-decoration: none;
+}
+.footer a:nth-child(-n + 3){
+    border-right: 1px solid white;
+}
+#contenedor-suscritos{
+    background-color: antiquewhite;
+    margin-left: 30px !important;
+}
