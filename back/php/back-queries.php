@@ -1,6 +1,7 @@
 <?php
 
-function get_dbc(){
+function get_dbc()
+{
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -35,7 +36,7 @@ function get_dbc(){
 /*----------------- SQL QUERIES FOR: CATEGORIES TABLE ---------------------*/
 /**
  *  ADD CATEGORIES GIVEN THROUGH ARRAY DATA
-*/
+ */
 
 
 // function addAPICategory(array|string|null $categories, array|string|null $descriptions) {
@@ -63,131 +64,117 @@ function get_dbc(){
 
 /*----------------- SQL QUERIES FOR: POST TABLE ---------------------*/
 
-//img titulo text
-
-function cargarPost(){
+function cargarPost()
+{
     try {
         $conn = get_dbc();
 
-        $sql ="select titulo, texto, img from post";
+        $sql = "select titulo, texto, img_name from post";
 
 
-        $result = mysqli_query($conn,$sql);
-
-        // if ($result) {
-        //     // Crear un array para almacenar los datos
-        //     $datosPost = array();
-
-        //     // Recorrer los resultados de la consulta
-        //     while ($fila = $result->fetch_assoc()) {
-        //         // Agregar los datos al array
-        //         $datosPost[] = $fila;
-        //     }
-
+        $result = mysqli_query($conn, $sql);
         if ($result) {
-            $resultados_json = json_encode($result->fetch_all(MYSQLI_ASSOC));
-            echo "<script>var resultados_js = {$resultados_json};</script>";
-
-            // while ($i = $result->fetch_assoc()) {
-            //     $post_arr = $i;
-            //     $post_arr["img"] = base64_encode($post_arr["img"]);
-                
-            // //     $heredoc_a = <<<HEREA
-            // //     <div class="container d-flex flex-wrap col-xl-8">
-            // //     <div class="categorias rounded-0 list-group col-sm-12 col-md-6 col-xl-4">
-            // //         <a href="#" class="fw-bold text-black bg-white border-light-subtle list-group-item list-group-item-action active p-3 fs-3" aria-current="true">
-            // //             Categorías
-            // //         </a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            // //         <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-
-            // //     </div>
-            // //     <div class="trending-today text-center bg-light p-3 col-sm-12 col-md-6 col-xl-8">
-            // //         <div class="fs-3 text-start fw-bold">Trending today</div>
-            // //         <div class="my-3 fs-5 items-trending">
-            // //             <a href="#">Trending 1</a>
-            // //             <a href="#">Trending 2</a>
-            // //             <a href="#">Trending 3</a>
-            // //             <a href="#">Trending 4</a>
-            // //             <a href="#">Trending 5</a>
-            // //             <a href="#">Trending 6</a>
-            // //             <a href="#">Trending 7</a>
-            // //             <a href="#">Trending 8</a>
-            // //             <a href="#">Trending 9</a>
-            // //             <a href="#">Trending 10</a>
-
-            // //         </div>
-
-            // //         <div class="contenedor-cards container justify-content-center  d-flex flex-wrap">
-            // //             <div class="card" style="width: 18rem;">
-            // //                 <img src=data:image/jpg;charset=utf8;base64,$post_arr[img] class="card-img-top" alt="...">
-            // //                 <div class="card-body">
-            // //                     <h5 class="card-title">Card title</h5>
-            // //                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            // //                     <a href="#" class="btn btn-primary">Go somewhere</a>
-            // //                 </div>
-            // //             </div>
-            // //             <div class="card" style="width: 18rem;">
-            // //                 <img src=data:image/jpg;charset=utf8;base64,$post_arr[img] class="card-img-top" alt="...">
-            // //                 <div class="card-body">
-            // //                     <h5 class="card-title">Card title</h5>
-            // //                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            // //                     <a href="#" class="btn btn-primary">Go somewhere</a>
-            // //                 </div>
-            // //             </div>
-            // //             <div class="card" style="width: 18rem;">
-            // //                 <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
-            // //                 <div class="card-body">
-            // //                     <h5 class="card-title">Card title</h5>
-            // //                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            // //                     <a href="#" class="btn btn-primary">Go somewhere</a>
-            // //                 </div>
-            // //             </div>
-            // //             <div class="card" style="width: 18rem;">
-            // //                 <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
-            // //                 <div class="card-body">
-            // //                     <h5 class="card-title">Card title</h5>
-            // //                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            // //                     <a href="#" class="btn btn-primary">Go somewhere</a>
-            // //                 </div>
-            // //             </div>
-
-            // //         </div>
-            // //         <button class="btn text-decoration-underline p-1">Mostrar más</button>
-
-
-            // //     </div>
-            // // </div>
-            // // HEREA;
-
-            // //     echo $heredoc_a;
-            // }
-            // return $post_arr;
+            // $resulta_json = json_encode($result->fetch_all(MYSQLI_ASSOC), JSON_INVALID_UTF8_SUBSTITUTE);
+            // mb_convert_encoding($result["img"] "UTF-8", "auto");
+            $resulta_json = json_encode($result->fetch_all(MYSQLI_ASSOC));
+            echo "<script> var res = {$resulta_json};</script>";
+            // $resultadojs = $result ->fetch_all(MYSQLI_ASSOC);
+            // echo "<script> var res = '".var_dump($resultadojs)."'</script>";
+            // echo '["' . implode('", "', $resultadojs) . '"]' ;
+            // echo "<script> var res = {$resultadojs}[titulo];</script>";
         }
-
-
     } catch (\Exception $th) {
-       echo "No se han podido cargar los post". $th;
+        echo "No se han podido cargar los post" . $th;
     }
 }
+
+
+function cargarPostCMS($titulo)
+{
+    try {
+        $conn = get_dbc();
+
+        $sql = "SELECT username, titulo, texto, img_name, rating from post where titulo ='$titulo'";
+
+
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+
+            $resulta_json = json_encode($result->fetch_all(MYSQLI_ASSOC));
+            echo "<script> var res = {$resulta_json};</script>";
+
+        }
+    } catch (\Exception $th) {
+        echo "No se han podido cargar los post" . $th;
+    }
+}
+
+/*----------------- SQL QUERIES FOR: TOPICS TABLE ---------------------*/
+function cargarCategorias()
+{
+    try {
+        $conn = get_dbc();
+
+        $sql = "select name from topics";
+
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+
+            $resulta_json = json_encode($result->fetch_all(MYSQLI_ASSOC));
+            echo "<script> var cat = {$resulta_json};</script>";
+        }
+    } catch (\Exception $th) {
+        echo "No se han podido cargar las categorías" . $th;
+    }
+}
+
+/*----------------- SQL QUERIES FOR: USERS TABLE ---------------------*/
+function crearUsuario()
+{
+
+    try {
+        $conn = get_dbc();
+
+        if (isset($_POST['user']) && isset($_POST['password'])) {
+            $user = $_POST['user'];
+            $id = $_POST['email'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+
+            $query = "INSERT INTO 'users' (username ,email ,pass) VALUES('$user', ' $id ', '$password')";
+            $result = mysqli_query($conn, $query);
+            if ($result) {
+                $msg = "Usuario registrado con éxito";
+            } else
+                $msg = "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
+        }
+    } catch (\Exception $th) {
+        echo "Error durante la creación del usuario" . $th;
+    }
+}
+
+function verificarUsuario()
+{
+
+    try {
+        $conn = get_dbc();
+
+        if (isset($_POST['user']) && isset($_POST['password'])) {
+            $user = $_POST['user'];
+            $password = $_POST['password'];
+
+
+            $query = "SELECT username, pass from users where username = '$user' and pass='$password'";
+            $result = mysqli_query($conn, $query);
+            if (password_verify($password, $result["pass"])){
+                $msg = "Coinciden";
+            }else 
+                $msg = "No coinciden, repita";
+        }
+    } catch (\Exception $th) {
+        echo "Error durante la verificación del usuario" . $th;
+    }
+}
+
+
+

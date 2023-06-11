@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="10">
     <title>Document</title>
 
         <!-- BOOTSTRAP LINK -->
@@ -39,38 +38,17 @@
 
     <!-- SIDEBAR -->
     <div class="container d-flex flex-wrap col-xl-8">
-        <div class="categorias rounded-0 list-group col-sm-12 col-md-6 col-xl-4">
+        <div class="categorias rounded-0 list-group col-sm-12 col-md-6 col-xl-4" id="categ">
             <a href="#" class="fw-bold text-black bg-white border-light-subtle list-group-item list-group-item-action active p-3 fs-3" aria-current="true">
                 Categorías
             </a>
             <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+
 
         </div>
         <div class="trending-today text-center bg-light p-3 col-sm-12 col-md-6 col-xl-8">
             <div class="fs-3 text-start fw-bold">Trending today</div>
-            <div class="my-3 fs-5 items-trending">
+            <div class="my-3 fs-5 items-trending" id="trentoday">
                 <a href="#">Trending 1</a>
                 <a href="#">Trending 2</a>
                 <a href="#">Trending 3</a>
@@ -98,11 +76,10 @@
             </div>
             <button class="btn text-decoration-underline p-1">Mostrar más</button>
 
-
         </div>
     </div>
 
-
+<!-- comment -->
     <!-- FOOTER -->
 
     <div class="footer text-center container-fluid p-4 bg-dark text-white">
@@ -114,18 +91,16 @@
         <a href="#"><i class="bi bi-instagram"></i></a>
 
     </div>
-
+ 
+    <?php
+     //include("./controller/index_control.php"); 
+    require_once('../../back/php/back-queries.php');
+    cargarPost();
+    cargarCategorias();
+    ?>
     <!-- BOOTSTRAP JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
 </body>
-
-<?php
-// include("./controller/index_control.php"); 
-require_once('../../back/php/back-queries.php');
-cargarPost();
-?>
-
-    <!-- JS LINK -->
-    <script src="../js/index.js"></script>
 
 </html>
