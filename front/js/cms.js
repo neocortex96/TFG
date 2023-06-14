@@ -14,3 +14,4 @@ res.forEach(element => {
     cargarPostCMSjs(element["titulo"], element["img_name"])
 
 });
+

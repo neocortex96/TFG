@@ -16,6 +16,8 @@
 
     <!-- BOOTSTRAP ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="user-select-none">
@@ -30,8 +32,7 @@
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
             </form>
             <div class="d-flex align-items-center" id="navbar-iconos-derecha">
-                <button title="modal" type="button" class="btn btn-primary-outline" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                <button title="modal" type="button" class="btn btn-primary-outline" data-bs-toggle="modal"data-bs-target="#exampleModal">
                     <i type="button" class="bi bi-cloud-upload fs-1 text-primary"></i>
                 </button>
                 <button type="button" class="btn btn-primary mx-3">Chat</button>
@@ -98,8 +99,8 @@
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark"  style="--bs-bg-opacity: .95">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
                 <div class="modal-header">
                     <h1 class="modal-title text-white fs-5" id="exampleModalLabel">CREACIÓN POST</h1>
                 </div>
@@ -186,9 +187,9 @@
 
 
 
-    <div class="container-fluid col-xl-10 offset-1">
+    <div class="container col-xl-10 my-3">
         <div class="row">
-            <div class="card col-12 col-md-5 col-xl-2 px-0 m-4">
+            <div class="card col-12 col-md-5 col-xl-2 px-0 mx-3 ">
                 <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -197,7 +198,7 @@
                     <a href="#" class="btn btn-danger">Eliminar suscripción</a>
                 </div>
             </div>
-            <div class="card col-12 col-md-5 col-xl-2 px-0 m-4">
+            <div class="card col-12 col-md-5 col-xl-2 px-0 mx-3">
                 <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -206,7 +207,7 @@
                     <a href="#" class="btn btn-danger">Eliminar suscripción</a>
                 </div>
             </div>
-            <div class="card col-12 col-md-5 col-xl-2 px-0 m-4">
+            <div class="card col-12 col-md-5 col-xl-2 px-0 mx-3">
                 <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -215,7 +216,7 @@
                     <a href="#" class="btn btn-danger">Eliminar suscripción</a>
                 </div>
             </div>
-            <div class="card col-12 col-md-5 col-xl-2 px-0 m-4">
+            <div class="card col-12 col-md-5 col-xl-2 px-0 mx-3">
                 <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
@@ -224,6 +225,19 @@
                     <a href="#" class="btn btn-danger">Eliminar suscripción</a>
                 </div>
             </div>
+            <div class="card col-12 col-md-5 col-xl-2 px-0 mx-3">
+                <img src="../files/images/sampleimg.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-danger">Eliminar suscripción</a>
+                </div>
+            </div>
+            
+            
+
+            
         </div>
     </div>
 
@@ -246,13 +260,22 @@
 
     <!-- FOOTER -->
 
+    
     <div class="footer text-center container-fluid p-4 bg-dark text-white">
-        <a href="#">Aviso de copyright</a>
-        <a href="#">Política de privacidad</a>
+        <a data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Derechos de autor © 2023 Moon Star. Todos los derechos reservados.">
+            Aviso de copyright</a>
+
+        <a data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="En Moon Star, respetamos su privacidad y nos comprometemos a protegerla. Esta política explica cómo recopilamos, 
+        utilizamos y protegemos la información personal que usted proporciona al visitar nuestro sitio web.">Política de privacidad</a>
+
+
         <a href="#">Mapa de sitio</a>
-        <a href="#">Información de contacto</a>
-        <a href="#"><i class="bi bi-twitter"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
+
+        <a data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Nos puede contactar a través de tlf: 673 227 637 | 615 73 04 22 o en nuestras redes sociales.">
+            Información de contacto</a>
+
+        <a href="https://twitter.com/mesut_senturk96" target=”_blank”><i class="bi bi-twitter"></i></a>
+        <a href="https://instagram.com/visto0r_" target=”_blank”><i class="bi bi-instagram"></i></a>
 
     </div>
 
@@ -263,6 +286,16 @@
         crossorigin="anonymous"></script>
     <!-- JS -->
     <script src="../js/profile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        //Habilitar popovers
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+        const popover = new bootstrap.Popover('.popover-dismiss', {
+            trigger: 'focus'
+        })
+    </script>
 </body>
 
 </html>
