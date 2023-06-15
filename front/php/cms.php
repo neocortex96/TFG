@@ -1,13 +1,3 @@
-<?php
-// echo "El Titulo es : ". $_GET["titulo"]."<br>";
-// echo "La Imagen es : ". $_GET["img"]."<br>";
-// echo "El Texto es : ". $_GET["texto"]."<br>";
-
-// require_once('../../back/php/back-queries.php');
-// cargarPostCMS($_GET["titulo"]);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,8 +22,8 @@
     <nav class="barra-navegacion navbar navbar-expand-lg p-3 bg-dark">
         <div class="container-fluid">
 
-            <a class="navbar-brand text-light" href="#">LOGO</a>
-
+            <!-- <a class="navbar-brand text-light" href="#"></a> -->
+            <img src="../files/images/MS-logo.png" alt="Moon Star" style="height: 70px; width: 75px;">
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Buscar topics" aria-label="Search">
                 <button class="btn btn-outline-light" type="submit">Buscar</button>
@@ -52,29 +42,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- Post content-->
-                <article>
-                    <!-- Post header-->
-                    <header class="mb-4">
-                        <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">Título del artículo</h1>
-                        <!-- Post meta content-->
-                        <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
-                        <!-- Post categories-->
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                    </header>
-                    <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                    <div class="container text-end">
-                        <a class="badge bg-primary text-decoration-none link-light mb-3" href="#">Likes (count)</a>
-                    </div>
-
-                    <!-- Post content-->
-                    <section class="mb-5">
-                        <p class="fs-5 mb-4">Descripción del post. Un poco de lorem. Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Dicta accusamus illo ratione? Illum quam sed recusandae commodi possimus! Sed, fugiat? </p>
-
-                    </section>
+                <article id="article">
                 </article>
                 <!-- Comments section-->
                 <section class="mb-5">
@@ -120,9 +88,16 @@
     </div>
     <!-- BOOTSTRAP JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="../js/cms.js"></script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <?php
+
+    require_once('../../back/php/back-queries.php');
+    cargarPostCMS($_GET["titulo"]);
+
+    ?>
 
     <script>
         //Habilitar popovers
@@ -136,5 +111,7 @@
 
 
 </body>
+
+<script src="../js/cms.js"></script>
 
 </html>

@@ -93,8 +93,11 @@ function cargarPostCMS($titulo)
 {
     try {
         $conn = get_dbc();
-
-        $sql = "SELECT username, titulo, texto, img_name, rating from post where titulo ='$titulo'";
+        // 
+        // 
+        // SELECT topics.name from post join topics on post.id_topic = topics.id_topic where post.id_topic=0;
+        // $sql = "SELECT username, titulo, texto, img_name, rating from post where titulo ='$titulo'";
+        $sql = "SELECT username, titulo, texto, img_name, rating, topics.name from post join topics on post.id_topic = topics.id_topic where titulo ='$titulo'";
 
 
         $result = mysqli_query($conn, $sql);
@@ -102,7 +105,6 @@ function cargarPostCMS($titulo)
 
             $resulta_json = json_encode($result->fetch_all(MYSQLI_ASSOC));
             echo "<script> var res = {$resulta_json};</script>";
-
         }
     } catch (\Exception $th) {
         echo "No se han podido cargar los post" . $th;
@@ -129,24 +131,27 @@ function cargarCategorias()
 }
 
 /*----------------- SQL QUERIES FOR: USERS TABLE ---------------------*/
-function crearUsuario()
+function crearUsuarioAdmin()
 {
 
     try {
         $conn = get_dbc();
+        if (isset($_POST['confirm'])) {
+            if (isset($_POST['username']) && isset($_POST['passw']) && isset($_POST['email']) && isset($_POST['rol'])) {
+                $user = $_POST['username'];
+                $id = $_POST['email'];
+                $password = password_hash($_POST['passw'], PASSWORD_DEFAULT);
+                $role = $_POST['rol'];
 
-        if (isset($_POST['user']) && isset($_POST['password'])) {
-            $user = $_POST['user'];
-            $id = $_POST['email'];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-
-            $query = "INSERT INTO 'users' (username ,email ,pass) VALUES('$user', ' $id ', '$password')";
-            $result = mysqli_query($conn, $query);
-            if ($result) {
-                $msg = "Usuario registrado con éxito";
-            } else
-                $msg = "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
+                $query = "insert into users (username ,email ,pass, role) values ('$user','$id' , '$password', '0')";
+                // $query = "insert into users (username ,email ,pass, role) values ('yo',  'yo@yo' , 'yoyo', '0')";
+                $result = mysqli_query($conn, $query);
+                if ($result) {
+                    echo "Usuario registrado con éxito";
+                } else
+                    echo "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
+            }
         }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario" . $th;
@@ -166,15 +171,32 @@ function verificarUsuario()
 
             $query = "SELECT username, pass from users where username = '$user' and pass='$password'";
             $result = mysqli_query($conn, $query);
-            if (password_verify($password, $result["pass"])){
-                $msg = "Coinciden";
-            }else 
-                $msg = "No coinciden, repita";
+            if (password_verify($password, $result["pass"])) {
+                echo  "Verified";
+            } else
+                echo "Hubo un problema durante la verificación de usuario, asegurése de que la contraseña o el nombre son correctos";
         }
     } catch (\Exception $th) {
         echo "Error durante la verificación del usuario" . $th;
     }
 }
 
+function cargarUser($name)
+{
+    try {
+        $conn = get_dbc();
+
+        $sql = "select * from users";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+
+            $resulta_users= json_encode($result->fetch_all(MYSQLI_ASSOC));
+            echo "<script> var cat = {$resulta_users};</script>";
+        }
+    } catch (\Exception $th) {
+        echo "No se han podido cargar las categorías" . $th;
+    }
+}
 
 

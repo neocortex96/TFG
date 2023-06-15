@@ -8,8 +8,7 @@
     <title>Profile</title>
 
     <!-- BOOTSTRAP LINK -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- CSS LINK -->
     <link rel="stylesheet" href="../css/profile.css">
@@ -22,10 +21,18 @@
 
 <body class="user-select-none">
     <!-- NAVBAR -->
-    <nav class="barra-navegacion navbar navbar-expand-lg bg-dark p-3">
+
+    <?php
+    require_once('../../back/php/user.php');
+    loadHeader($s);
+    ?>
+    <script src="../js/headers.js"></script>
+    <!-- <nav class="barra-navegacion navbar navbar-expand-lg bg-dark p-3">
         <div class="container-fluid">
 
-            <a class="navbar-brand text-light" href="#">LOGO</a>
+            <a class="navbar-brand text-light" href="#">
+                <img src="../files/images/MS-logo.png" alt="Moon Star" style="height: 70px; width: 75px;">
+            </a>
 
             <form class="d-flex" role="search" id="buscador-navbar">
                 <input class="form-control me-2" type="search" placeholder="Buscar topics" aria-label="Search">
@@ -36,7 +43,7 @@
                     <i type="button" class="bi bi-cloud-upload fs-1 text-primary"></i>
                 </button>
                 <button type="button" class="btn btn-primary mx-3">Chat</button>
-                <!-- <a href="#"><i class="bi bi-cloud-upload fs-1 text-primary" id="subirPost"></i></a> -->
+                
                 <a href="#"><i class="bi bi-person-circle fs-1 text-primary mx-3"></i></a>
             </div>
             <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse"
@@ -46,8 +53,8 @@
             </button>
 
         </div>
-    </nav>
-
+    </nav> -->
+    <!-- <a href="#"><i class="bi bi-cloud-upload fs-1 text-primary" id="subirPost"></i></a> -->
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="list-group text-light text-center rounded-0 d-flex align-items-center">
             <a href="#" class="list-group-item list-group-item-action">Chat</a>
@@ -111,8 +118,7 @@
                             <label for="floatingInput">Nombre</label>
                         </div>
                         <div class="mb-3 form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                style="height: 100px"></textarea>
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Descripción</label>
                         </div>
                         <div class="mb-3">
@@ -132,8 +138,7 @@
 
     <!-- DATOS DEL USUARIO -->
 
-    <div class="container-fluid datos-contenedor-global d-flex flex-wrap col-xs-10 col-md-10 col-xl-10 p-3"
-        id="datos-usuario">
+    <div class="container-fluid datos-contenedor-global d-flex flex-wrap col-xs-10 col-md-10 col-xl-10 p-3" id="datos-usuario">
         <div class="container columna-imagen d-flex flex-wrap justify-content-center col-xs-4 col-md-2 col-xl-2">
             <img id="mi-imagen" src="../files/images/pp-placeholder.png" alt="placeholder-pp">
             <a href="#">
@@ -159,8 +164,7 @@
 
         <div class="container-fluid d-flex col-xl-5 align-items-center p-3">
             <div class="dropdown mx-3">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Ordenar por categorías
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -234,10 +238,10 @@
                     <a href="#" class="btn btn-danger">Eliminar suscripción</a>
                 </div>
             </div>
-            
-            
 
-            
+
+
+
         </div>
     </div>
 
@@ -260,7 +264,7 @@
 
     <!-- FOOTER -->
 
-    
+
     <div class="footer text-center container-fluid p-4 bg-dark text-white">
         <a data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Derechos de autor © 2023 Moon Star. Todos los derechos reservados.">
             Aviso de copyright</a>
@@ -281,9 +285,7 @@
 
 
     <!-- BOOTSTRAP JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- JS -->
     <script src="../js/profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

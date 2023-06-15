@@ -16,28 +16,21 @@
     <!-- LINK CSS -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
-
+<?php
+    //include("./controller/index_control.php"); 
+    require_once('../../back/php/back-queries.php');
+    require_once('../../back/php/user.php');
+    loadHeader($s);
+    cargarPost();
+    cargarCategorias();
+    ?>
 <body>
 
     <!-- AL REGISTRARSE NOS SACA LA PANTALLA DE SUGERENCIAS (INTERESES) EN UN MINIDISPLAY CON CATEGORIAS RANDOM -->
 
 
     <!-- NAVBAR -->
-    <nav class="barra-navegacion navbar navbar-expand-lg p-3 bg-dark">
-        <div class="container-fluid">
-
-            <a class="navbar-brand text-light" href="#">LOGO</a>
-
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar topics" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-            <div>
-                <button title="modal" type="button" class="btn btn-primary-outline" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <input type="button" class="btn btn-primary" value="Iniciar sesión">
-            </div>
-        </div>
-    </nav>
+    <script src="../js/headers.js"></script>
 
 
     <!-- SIDEBAR -->
@@ -180,15 +173,10 @@
 
     </div>
 
-    <?php
-    //include("./controller/index_control.php"); 
-    require_once('../../back/php/back-queries.php');
-    cargarPost();
-    cargarCategorias();
-    ?>
+
     <!-- BOOTSTRAP JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="../js/script.js"></script>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -204,6 +192,7 @@
 
 
 
+<script src="../js/script.js"></script>
 </body>
 
 </html>

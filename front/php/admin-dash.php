@@ -15,30 +15,21 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
+<?php
+
+include('../../back/php/back-queries.php');
+require_once('../../back/php/user.php');
+crearUsuarioAdmin();
+loadHeader($s)
+?>
+
 <body>
 
     <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="admin-dash.php">Zona admin</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto  me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <script src="../js/headers.js"></script>
+
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -126,30 +117,30 @@
         <div class="modal fade" id="modalCrearUsuario" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content p-5 bg-dark text-light">
-                    <form class="d-flex flex-column">
+                    <form class="d-flex flex-column" method="post" action="">
                         <a href="#" class="text-end fs-3 text-white"> <i class="bi bi-x-lg " data-bs-dismiss="modal"></i></a>
                         <h2 class="text-center p-4">CREAR USUARIO</h2>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                            <input type="email" size="35" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" size="35" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
 
                         </div>
                         <div class="mb-3">
                             <label for="exampleUserName" class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control" id="exampleUserName" aria-describedby="userHelp">
+                            <input type="text" class="form-control" id="exampleUserName" aria-describedby="userHelp" name="username">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="passw">
                         </div>
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="rol">
                             <option selected>Seleccione rol de usuario</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Mantenimiento</option>
-                            <option value="3">Usuario</option>
+                            <option value='0'>Admin</option>
+                            <option value='1'>Soporte</option>
+                            <option value='2'>Usuario</option>
                         </select>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary mt-3" type="button">Confirmar</button>
+                            <button class="btn btn-primary mt-3" type="submit" name="confirm">Confirmar</button>
                             <button class="btn btn-danger mt-3" type="button" data-bs-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
@@ -161,7 +152,7 @@
         <div class="modal fade" id="modalActualizarUsuario" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content p-5 bg-dark text-light">
-                    <form class="d-flex flex-column">
+                    <form class="d-flex flex-column" method="post">
                         <a href="#" class="text-end fs-3 text-white"> <i class="bi bi-x-lg " data-bs-dismiss="modal"></i></a>
                         <h2 class="text-center p-4">ACTUALIZAR USUARIO</h2>
                         <div class="mb-3">
@@ -179,9 +170,9 @@
                         </div>
                         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                             <option selected>Seleccione rol de usuario</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Mantenimiento</option>
-                            <option value="3">Usuario</option>
+                            <option value="0">Admin</option>
+                            <option value="1">Mantenimiento</option>
+                            <option value="2">Usuario</option>
                         </select>
                         <div class="d-grid gap-2">
                             <button class="btn btn-primary mt-3" type="button">Confirmar</button>
@@ -285,6 +276,8 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
         <script src="../js/admin-dash.js"></script>
+
+
 
 
     </body>
