@@ -28,7 +28,7 @@
     require_once('../../back/php/back-queries.php');
     require_once('../../back/php/user.php');
     if (!isset($_SESSION["role"])) {
-        header("Location: http://localhost:3000/front/php/index.php");
+        header("Location: http://localhost/tfg/front/php/index.php");
     }
     loadHeader(intval($_SESSION["role"]));
     cargarPostProfile($_SESSION["username"]);
@@ -36,8 +36,9 @@
     $sessionJSON = json_encode($sessionArray);
     echo "<script>var sessionData = $sessionJSON;</script>";
 
-    if (isset($_SESSION["confpost"])) {
-        
+    if (isset($_POST["confpost"])) {
+        // crearPost($usern, $nombrecategoria, $titulo, $desc, $img_name);
+        crearPost($_SESSION["username"], $_POST["postcategoria"], $_POST["nompost"], $_POST["descpost"], $_POST["imgpost"]);
     }
     ?>
     <script src="../js/headers.js"></script>
@@ -119,35 +120,44 @@
     </div> -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h1 class="modal-title text-white fs-5" id="exampleModalLabel">CREACIÓN POST</h1>
-                </div>
-                <div class="modal-body">
-                    <form class="d-flex flex-column">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="nompost">
-                            <label for="floatingInput">Nombre</label>
-                        </div>
-                        <div class="mb-3 form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="descpost"></textarea>
-                            <label for="floatingTextarea2">Descripción</label>
-                        </div>
-                        <div class="mb-3">
-                            <label for="formFileSm" class="form-label text-white">Imagen descriptiva</label>
-                            <input class="form-control form-control-sm" id="formFileSm" type="file" name="imgpost">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer border-top-0 align-self-center">
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success" name="confpost">Confirmar</button>
+    <form method="post">
+
+        <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white fs-5" id="exampleModalLabel">CREACIÓN POST</h1>
+                    </div>
+                    <div class="modal-body">
+                        <form class="d-flex flex-column">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="nompost">
+                                <label for="floatingInput">Nombre del post</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Aviones!" name="postcategoria">
+                                <label for="floatingInput">Nombre de la categoria</label>
+                            </div>
+                            <div class="mb-3 form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="descpost"></textarea>
+                                <label for="floatingTextarea2">Descripción</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label text-white">Imagen descriptiva</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="imgpost">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer border-top-0 align-self-center">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success" name="confpost">Confirmar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </form>
+
 
 
     <!-- DATOS DEL USUARIO -->
@@ -195,19 +205,52 @@
             </div>
         </div>
         <div class="container-fluid d-flex col-5 align-items-center p-3 justify-content-end">
-            <input type="checkbox" class="btn-check mx-3" id="btn-check-outlined" autocomplete="off">
-            <label class="btn btn-outline-primary mx-3" for="btn-check-outlined">Suscripciones</label><br>
+            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalIPs">
+                Historial de IP's
+            </button>
             <input type="checkbox" class="btn-check mx-3" id="btn-check-2-outlined" checked autocomplete="off">
             <label class="btn btn-outline-primary mx-3" for="btn-check-2-outlined">Creados por ti</label><br>
         </div>
     </div>
 
+    <!-- Modal IPs -->
 
+    <div class="modal fade" id="modalIPs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-3">
 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">IP address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><?php echo $_SESSION["username"];?></td>
+                            <td><p id="gfg"></p></td>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <th scope="row">2</th>
+                            <td>Nombre del usuario</td>
+                            <td>Su dirección ip</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container col-xl-10 my-3">
         <div class="row" id="row">
-            
+
         </div>
     </div>
     <script src="../js/generarprofiletopics.js"></script>
@@ -253,7 +296,7 @@
     <!-- BOOTSTRAP JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <!-- JS -->
-    
+
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
     <script>
         //Habilitar popovers
@@ -264,9 +307,15 @@
             trigger: 'focus'
         })
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
 
+    <script>
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+
+            $("#gfg").html(data.ip);
+        })
+    </script>
 </body>
 
 </html>
-
-

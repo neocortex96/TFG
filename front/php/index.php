@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +17,13 @@
     <!-- LINK CSS -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
+
 <?php
 //include("./controller/index_control.php"); 
 session_start();
 require_once('../../back/php/back-queries.php');
 require_once('../../back/php/user.php');
-if (isset($_POST["iniciars"]) ) {
+if (isset($_POST["iniciars"])) {
     conectarUsuario($_POST["email"], $_POST["pass"]);
     error_reporting(E_ERROR | E_PARSE);
     loadHeader(intval($_SESSION["role"]));
@@ -29,11 +31,12 @@ if (isset($_POST["iniciars"]) ) {
     loadHeader(intval($_SESSION["role"]));
 } else
     loadHeader(1);
+if (isset($_POST["registrar"])) {
+    crearUsuario($_POST["email"], $_POST["username"], $_POST["password"]);
+}
 
-cargarPost();
 cargarCategorias();
-
-
+cargarPost();
 ?>
 
 <body>
@@ -132,7 +135,7 @@ cargarCategorias();
                     <h2 class="text-center p-4">REGISTRO</h2>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                        <input type="email" size="35" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" size="35" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
 
                     </div>
                     <div class="mb-3">
@@ -148,7 +151,7 @@ cargarCategorias();
                         <label class="form-check-label" for="exampleCheck1">Recordar usuario</label>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary mx-2">Enviar</button>
+                        <button type="submit" class="btn btn-primary mx-2" name="registrar">Enviar</button>
                         <button type="button" class="btn btn-danger mx-2" data-bs-dismiss="modal">Cancelar</button>
                     </div>
 
@@ -176,7 +179,7 @@ cargarCategorias();
         utilizamos y protegemos la información personal que usted proporciona al visitar nuestro sitio web.">Política de privacidad</a>
 
 
-        <a href="#">Mapa de sitio</a>
+        <a href="../php/mapasitio.php">Mapa de sitio</a>
 
         <a data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Nos puede contactar a través de tlf: 673 227 637 | 615 73 04 22 o en nuestras redes sociales.">
             Información de contacto</a>

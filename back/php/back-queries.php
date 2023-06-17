@@ -69,16 +69,16 @@ function mostrarArticuloAdmin($id)
 {
     try {
         $conn = get_dbc();
-        if($id){
+        if ($id) {
             $p_id = $id;
             $query = "select * from post where p_id='$p_id '";
             $result = mysqli_query($conn, $query);
             if (mysqli_num_rows($result) > 0) {
                 $postinfo = json_encode($result->fetch_all(MYSQLI_ASSOC));
                 echo "<script> var postinfo = {$postinfo};</script>";
-            } else{
-                echo "No existe un POST con esta id: "+$id;
-            }   
+            } else {
+                echo "No existe un POST con esta id: " + $id;
+            }
         }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario" . $th;
@@ -89,15 +89,14 @@ function updateArticuloPost($id, $titulo, $img, $desc)
 {
     try {
         $conn = get_dbc();
-                $query = "update post set titulo='$titulo', img_name='$img', texto='$desc' where p_id='$id'";
-                $result = mysqli_query($conn, $query);
-                if ($result > 0) {
-                    echo "Post actualizado";
-                } else
-                    echo "El post no existe!";
+        $query = "update post set titulo='$titulo', img_name='$img', texto='$desc' where p_id='$id'";
+        $result = mysqli_query($conn, $query);
+        if ($result > 0) {
+            echo "Post actualizado";
+        } else
+            echo "El post no existe!";
     } catch (\Exception $th) {
-        echo "Error durante la creación del usuario";
-
+        // echo "Error durante la creación del usuario";
     }
 }
 
@@ -106,15 +105,14 @@ function eliminarArticuloAdmin($id)
     // DELETE FROM users WHERE `users`.`email` = 'kaisyouamv@gmail.com' AND `users
     try {
         $conn = get_dbc();
-            if ($id) {
-                $p_id = $id;
-                $query = "delete from post where p_id='$id'";
-                $result = mysqli_query($conn, $query);
-                if($result === true) {
-                    echo "Post eliminado exitosamente";
-                }
+        if ($id) {
+            $p_id = $id;
+            $query = "delete from post where p_id='$id'";
+            $result = mysqli_query($conn, $query);
+            if ($result === true) {
+                echo "Post eliminado exitosamente";
             }
-        
+        }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario" . $th;
     }
@@ -185,6 +183,34 @@ function cargarPostProfile($username)
         echo "No se han podido cargar los post" . $th;
     }
 }
+function crearPost($usern, $nombrecategoria, $titulo, $desc, $img_name)
+{
+
+    try {
+        $conn = get_dbc();
+        
+        $query = "select id_topic from topics where name = '$nombrecategoria'";
+        
+        $resultado = mysqli_query($conn, $query);
+        
+        $row = mysqli_fetch_assoc($resultado);
+
+        $id_topic = $row['id_topic'];
+        if ($usern and $id_topic and $titulo and $desc and $img_name) {
+            $query = "insert into post (p_id, username, id_topic, titulo, texto, img_name, rating) values ('null','$usern', '$id_topic', '$titulo','$desc','$img_name',0)";
+            $result = mysqli_query($conn, $query);
+            if ($result > 0) {
+                echo "<script> var very = true;</script>";
+            } else
+                echo "El post no ha podido ser creado";
+        }else
+            echo "Escoja otro nombre o asegúrese de elegir la categoría correcta";
+    } catch (\Exception $th) {
+        // echo "Error durante la creación del usuario";
+    }
+}
+
+
 
 /*----------------- SQL QUERIES FOR: TOPICS TABLE ---------------------*/
 function cargarCategorias()
@@ -226,14 +252,12 @@ function crearUsuarioAdmin()
                 $result = mysqli_query($conn, $query);
                 if ($result > 0) {
                     echo "<script> var very = true;</script>";
-                    
                 } else
                     echo "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
             }
         }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario";
-
     }
 }
 
@@ -241,26 +265,25 @@ function mostrarUsuarioAdmin($user)
 {
     try {
         $conn = get_dbc();
-            if ($user) {
-                $mail = $user;
-                $query = "select * from users where email='$mail'";
-                $result = mysqli_query($conn, $query);
-                if (mysqli_num_rows($result) > 0) {
-                    $user_info = json_encode($result->fetch_all(MYSQLI_ASSOC));
-                    echo "<script> var cat = {$user_info};</script>";
-                } else{
-                    $user_info_un = [
-                        "username" => "NOT FOUND",
-                        "email" => "NOT FOUND",
-                        "pass" => "NOT FOUND",
-                        "reg_date"  => "NOT FOUND", 
-                        "role"  => "NOT FOUND"
-                    ];
-                    $encoded = json_encode($user_info_un);
-                    echo "<script> var cat = {$encoded};</script>";
-                }   
+        if ($user) {
+            $mail = $user;
+            $query = "select * from users where email='$mail'";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                $user_info = json_encode($result->fetch_all(MYSQLI_ASSOC));
+                echo "<script> var cat = {$user_info};</script>";
+            } else {
+                $user_info_un = [
+                    "username" => "NOT FOUND",
+                    "email" => "NOT FOUND",
+                    "pass" => "NOT FOUND",
+                    "reg_date"  => "NOT FOUND",
+                    "role"  => "NOT FOUND"
+                ];
+                $encoded = json_encode($user_info_un);
+                echo "<script> var cat = {$encoded};</script>";
             }
-        
+        }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario" . $th;
     }
@@ -271,15 +294,14 @@ function eliminarUsuarioAdmin($user)
     // DELETE FROM users WHERE `users`.`email` = 'kaisyouamv@gmail.com' AND `users
     try {
         $conn = get_dbc();
-            if ($user) {
-                $mail = $user;
-                $query = "delete from users where email='$mail'";
-                $result = mysqli_query($conn, $query);
-                if($result === true) {
-                    echo "Usuario eliminado exitosamente";
-                }
+        if ($user) {
+            $mail = $user;
+            $query = "delete from users where email='$mail'";
+            $result = mysqli_query($conn, $query);
+            if ($result === true) {
+                echo "Usuario eliminado exitosamente";
             }
-        
+        }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario" . $th;
     }
@@ -289,17 +311,16 @@ function updateUsuarioAdmin($correo, $nombre, $contrase, $rol)
 {
     try {
         $conn = get_dbc();
-                $password = password_hash($contrase, PASSWORD_DEFAULT);
-                $rol = strval($rol);
-                $query = "update users set username='$nombre', pass='$password', role='$rol' where email='$correo'";
-                $result = mysqli_query($conn, $query);
-                if ($result > 0) {
-                    echo "Usuario actualizado";
-                } else
-                    echo "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
+        $password = password_hash($contrase, PASSWORD_DEFAULT);
+        $rol = strval($rol);
+        $query = "update users set username='$nombre', pass='$password', role='$rol' where email='$correo'";
+        $result = mysqli_query($conn, $query);
+        if ($result > 0) {
+            echo "Usuario actualizado";
+        } else
+            echo "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario";
-
     }
 }
 /*----------------- CLIENT ---------------------*/
@@ -340,25 +361,21 @@ function cargarUser($name)
     }
 }
 
-function crearUsuario()
+function crearUsuario($correo, $usuario, $passw)
 {
 
     try {
         $conn = get_dbc();
-        if (isset($_POST['confirm'])) {
-            if (isset($_POST['username']) && isset($_POST['passw']) && isset($_POST['email'])) {
-                $user = $_POST['username'];
-                $id = $_POST['email'];
-                $password = password_hash($_POST['passw'], PASSWORD_DEFAULT);
-                $query = "insert into users (username ,email ,pass, role) values ('$user','$id' , '$password','3')";
-                // $query = "insert into users (username ,email ,pass, role) values ('yo',  'yo@yo' , 'yoyo', '0')";
+            // if (isset($correo) and isset($usuario) and isset($passw)) {
+                $password = password_hash($passw, PASSWORD_DEFAULT);
+                $query = "insert into users (username ,email ,pass, role) values ('$usuario','$correo' ,'$password','3')";
+                // $query ="insert into users (username ,email ,pass, role) values ('usuario','correo@correo' ,'$password','3')";
                 $result = mysqli_query($conn, $query);
                 if ($result) {
                     echo "Usuario registrado con éxito";
                 } else
                     echo "Usuario no registrado, asegúrese de usar un correo nunca usado o cambiar el nombre de usuario";
-            }
-        }
+            // }
     } catch (\Exception $th) {
         echo "Error durante la creación del usuario" . $th;
     }
@@ -395,4 +412,3 @@ function conectarUsuario($email, $pass)
         echo "Error durante la creación del usuario" . $th;
     }
 }
-
