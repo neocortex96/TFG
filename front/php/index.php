@@ -54,7 +54,7 @@ cargarPost();
             <a href="#" class="fw-bold text-black bg-white border-light-subtle list-group-item list-group-item-action active p-3 fs-3" aria-current="true">
                 Categorías
             </a>
-            <a href="#" class="list-group-item list-group-item-action">Nombre de categoría</a>
+            <a href="#" class="list-group-item list-group-item-action bg-black text-white"> </a>
 
 
         </div>

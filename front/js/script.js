@@ -2,7 +2,7 @@
 function cargarPostJs(titulo, texto, img_path) {
 
     const div = document.createElement('div');
-    div.classList.add('card', 'bg-danger');
+    div.classList.add('card', 'bg-dark');
     div.id = 'prueba';
     div.style.width = "18rem";
     document.getElementById("contenedor-cards").appendChild(div);
@@ -17,12 +17,12 @@ function cargarPostJs(titulo, texto, img_path) {
     div.appendChild(div1);
 
     const h5 = document.createElement('h5');
-    h5.classList.add('card-title');
+    h5.classList.add('card-title','text-light');
     h5.innerHTML=titulo;
     div1.appendChild(h5);
 
     const p = document.createElement('p');
-    p.classList.add('card-text');
+    p.classList.add('card-text','text-light');
     p.innerHTML=texto;
     div1.appendChild(p);
 
