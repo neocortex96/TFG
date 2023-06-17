@@ -13,27 +13,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- LINK CSS -->
     <link rel="stylesheet" href="../css/cms.css">
+    
 
 </head>
+<?php
 
+session_start();
+require_once('../../back/php/back-queries.php');
+require_once('../../back/php/user.php');
+cargarPostCMS($_GET["titulo"]);
+if (isset($_POST["iniciars"])) {
+    conectarUsuario($_POST["email"], $_POST["pass"]);
+    loadHeader(intval($_SESSION["role"]));
+} else if (isset($_SESSION["logged"])) {
+    loadHeader(intval($_SESSION["role"]));
+} else
+    loadHeader(1);
+if (isset($_POST["cerrar"])) {
+    session_destroy();
+}
+
+?>
 <body>
-
+    <script src="../js/headers.js"></script>
     <!-- NAVBAR -->
-    <nav class="barra-navegacion navbar navbar-expand-lg p-3 bg-dark">
-        <div class="container-fluid">
-
-            <!-- <a class="navbar-brand text-light" href="#"></a> -->
-            <img src="../files/images/MS-logo.png" alt="Moon Star" style="height: 70px; width: 75px;">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar topics" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-            <div>
-                <button title="modal" type="button" class="btn btn-primary-outline" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <input type="button" class="btn btn-primary" value="Iniciar sesión">
-            </div>
-        </div>
-    </nav>
 
     <!-- POST BODY -->
 
@@ -92,12 +95,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <?php
-
-    require_once('../../back/php/back-queries.php');
-    cargarPostCMS($_GET["titulo"]);
-
-    ?>
+    
 
     <script>
         //Habilitar popovers
